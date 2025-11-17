@@ -1,3 +1,9 @@
-import fs from 'fs';
+import boxen from "boxen";
 
-fs.writeFileSync('test.txt', 'Hello file!');
+console.log(
+  boxen("unicorn", {
+    padding: 1,
+    backgroundColor: "green",
+    borderColor: "red",
+  })
+);
