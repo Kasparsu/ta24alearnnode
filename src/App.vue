@@ -1,9 +1,16 @@
 <script setup>
-    let message = 'Hello Vue!';
+import { ref } from 'vue';
+
+let message = ref('Hello Vue!');
+
 </script>
 
 <template>
-    <h1>{{ message }}</h1>
+    <div class="container">
+        <h1>{{ message.split('').reverse().join('') }}</h1>
+        <button class="button is-primary" @click="message = 'Hello TA24A!'">Click me!</button>
+        <input class="input" v-model="message">
+    </div>
 </template>
 
 <style>
