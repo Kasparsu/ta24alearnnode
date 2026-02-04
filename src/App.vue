@@ -1,24 +1,26 @@
 <script setup>
 import { ref } from 'vue';
-import Modal from './components/Modal.vue';
-import ImgModal from './components/ImgModal.vue';
+import Tabs from './components/Tabs.vue';
 
-let modal1Active = ref(false);
-let modal2Active = ref(false);
-
-
+let titles = ref([
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+]);
+let activeTab = ref(0);
+let contents = ref([
+    'Content 1',
+    'Content 2',
+    'Content 3',
+    'Content 4',
+]);
 </script>
 
 <template>
+    <Tabs :titles="titles" :active="activeTab" @setActive="activeTab=$event"></Tabs>
     <div class="container">
-        <button class="button is-primary" @click="modal1Active=true">Open Modal</button>
-        <button class="button is-link" @click="modal2Active=true">Open Modal 2</button>
-
-        <Modal :active="modal1Active" @close="modal1Active=false">
-            <div class="box">I'm in a box.</div>
-        </Modal>
-
-        <ImgModal :active="modal2Active" @close="modal2Active=false" url="https://picsum.photos/1280/960?r=2"></ImgModal>
+        {{ contents[activeTab] }}
     </div>
 </template>
 
